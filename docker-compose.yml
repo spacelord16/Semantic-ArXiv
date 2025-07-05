@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - HOST=0.0.0.0
+      - PORT=8000
+      - VECTOR_DB_TYPE=faiss
+      - EMBEDDING_MODEL=all-MiniLM-L6-v2
+      - DATA_DIR=/app/data
+      - ARXIV_CATEGORIES=cs.AI,cs.CV,cs.LG,cs.NE,cs.CL
+    volumes:
+      - ./backend/data:/app/data
+      - ./backend:/app
+    networks:
+      - semantic-arxiv-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - semantic-arxiv-network
+
+networks:
+  semantic-arxiv-network:
+    driver: bridge
+
+volumes:
+  backend_data:
