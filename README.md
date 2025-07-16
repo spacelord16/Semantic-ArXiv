@@ -118,11 +118,11 @@ PORT=8000
 ## 🎯 Roadmap
 
 - [x] Project setup and architecture
-- [ ] arXiv API integration
-- [ ] Embedding generation pipeline
-- [ ] Vector database implementation
-- [ ] Search functionality
-- [ ] Frontend search interface
+- [x] arXiv API integration
+- [x] Embedding generation pipeline
+- [x] Vector database implementation
+- [x] Search functionality
+- [x] Frontend search interface
 - [ ] Performance optimization
 - [ ] Deployment setup
 
@@ -137,8 +137,8 @@ PORT=8000
 
 This project is licensed under the MIT License.
 
-## 🙏 Acknowledgments
+<!-- ## 🙏 Acknowledgments
 
 - arXiv for providing open access to research papers
 - Hugging Face for the sentence transformers
-- The open-source community for the amazing tools
+- The open-source community for the amazing tools -->
